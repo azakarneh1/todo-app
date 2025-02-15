@@ -3,68 +3,77 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\Task\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display Tasks.
      */
     public function index()
     {
-        dd(Auth::user());
-
+        return response()->json([
+            'status' => 'success',
+            'tasks' => TaskResource::collection(auth()?->user()?->tasks)
+        ], 200);
         return response()->json(Task::all());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Task.
      */
     public function store(Request $request)
     {
-        dd('create');
+        $validated_task = $request->validate([
+            'text' => 'required|string|max:255',
+        ]);
 
-        dd(Auth::user());
-        $task = Task::create($request->validate([
-            'text' => 'required|string',
-            'user_id' => Auth::user()->id,
-        ]));
+        $task = auth()->user()->tasks()->create($validated_task);
 
-        return response()->json($task, 201);    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        dd('show');
-
-        return response()->json($task);
-
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Task created successfully!',
+            'data' => $task
+        ], 201);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified task.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        dd('update');
-        $task->update($request->validate([
-            'text' => 'sometimes|required|string',
-            'user_id' => 'sometimes|required|exists:users,id'
-        ]));
+        $validated = $request->validate([
+            'task_id' => 'required|exists:tasks,id',
+            'text' => 'required|string',
+        ]);
 
-        return response()->json($task);    }
+        $task = Task::findOrFail($validated['task_id']);
+
+        $task->update([
+            'text' => $validated['text']
+        ]);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Task updated successfully!',
+            'data' => $task
+        ], 200);
+    }
+
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a task.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        dd('delete');
-
+        $task = Task::findOrFail($id);
         $task->delete();
-        return response()->json(['message' => 'Task deleted']);    }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Task deleted successfully!',
+        ], 200);
+    }
 }

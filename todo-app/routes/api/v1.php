@@ -12,7 +12,8 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('tasks', [TaskController::class, 'index']);
-        Route::post('task', [TaskController::class, 'store']);
-        Route::put('task/{task_id}', [TaskController::class, 'update']);
+        Route::post('add-task', [TaskController::class, 'store']);
+        Route::put('update-task', [TaskController::class, 'update']);
+        Route::delete('delete-task/{id}', [TaskController::class, 'destroy']);
     });
 });
