@@ -7,10 +7,18 @@ use Livewire\Component;
 
 class Show extends Component
 {
+    public $emailFilter = '';
+
     public function render()
     {
+        $tasks = Task::when($this->emailFilter, function ($query) {
+            return $query->whereHas('user', function ($query) {
+                return $query->where('email', 'like', '%' . $this->emailFilter . '%');
+            });
+        })->paginate(10);
+
         return view('livewire.modules.tasks.show', [
-            'tasks' => Task::paginate(10),
+            'tasks' => $tasks,
         ]);
     }
 

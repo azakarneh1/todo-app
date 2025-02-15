@@ -3,6 +3,17 @@
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 <div class="card-header border-0 pt-6">
+                    <!-- Filtering Input for Email -->
+                    <div class="mb-4">
+                        <input
+                            type="text"
+                            id="emailFilter"
+                            class="form-control"
+                            wire:model.live.debounce.250ms="emailFilter"
+                            placeholder="Enter email to filter"
+                        >
+                    </div>
+
                     @if(auth()->user()->isAdmin())
                         <div class="me-2" data-kt-customer-table-toolbar="base">
                             <a href="{{ route('tasks.create') }}" class="btn btn-primary">Add Task</a>

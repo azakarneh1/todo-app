@@ -7,11 +7,13 @@ use Livewire\Component;
 
 class Show extends Component
 {
+    public $emailFilter = '';
+
     public function render()
     {
+        $users = User::where('email', 'like', '%' . $this->emailFilter . '%')->paginate(10);
         return view('livewire.modules.users.show', [
-            'users' => User::paginate(10),
-
+            'users' => $users,
         ]);
     }
 

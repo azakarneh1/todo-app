@@ -3,10 +3,21 @@
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 <div class="card-header border-0 pt-6">
-                    @if(auth()->user()->isAdmin())
-                    <div class="me-2" data-kt-customer-table-toolbar="base">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+                    <!-- Filtering Input for Email -->
+                    <div class="mb-4">
+                        <input
+                            type="text"
+                            id="emailFilter"
+                            class="form-control"
+                            wire:model.live.debounce.250ms="emailFilter"
+                            placeholder="Enter email to filter"
+                        >
                     </div>
+
+                    @if(auth()->user()->isAdmin())
+                        <div class="me-2" data-kt-customer-table-toolbar="base">
+                            <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+                        </div>
                     @endif
                     @if (session()->has('message'))
                         <div class="alert alert-success text-center mb-4 mt-3 w-100">
@@ -38,13 +49,16 @@
                                 <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                 <td class="text-center">
                                     <div class="dropdown">
-                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                             Actions
                                         </button>
                                         <div>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a href="{{ route('users.edit', $user->id) }}" class="dropdown-item">Edit</a>
-                                                <a href="javascript:void(0);" class="dropdown-item" wire:click="delete({{ $user->id }})">Delete</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"
+                                                   wire:click="delete({{ $user->id }})">Delete</a>
                                             </div>
                                         </div>
                                     </div>
