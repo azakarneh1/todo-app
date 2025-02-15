@@ -145,6 +145,7 @@
       <path value="$PROJECT_DIR$/todo-app/vendor/sebastian/object-reflector" />
       <path value="$PROJECT_DIR$/todo-app/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/todo-app/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/laravel/sanctum" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
