@@ -23,7 +23,9 @@
                             <th class="min-w-100px">Text</th>
                             <th class="min-w-100px">Assigned User</th>
                             <th class="min-w-50px">Created At</th>
-                            <th class="text-center min-w-70px">Actions</th>
+                            @if(auth()->user()->isAdmin())
+                                <th class="text-center min-w-70px">Actions</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody class="fw-bold text-gray-600">
@@ -34,25 +36,25 @@
                                 <td>{{ $task->text }}</td>
                                 <td>{{ $task->user?->email }}</td>
                                 <td>{{ $task->created_at->format('Y-m-d') }}</td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                            Actions
-                                        </button>
-                                        <div>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                @if(auth()->user()->isAdmin())
+                                @if(auth()->user()->isAdmin())
+                                    <td class="text-center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                Actions
+                                            </button>
+                                            <div>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a href="{{ route('tasks.edit', $task->id) }}"
                                                        class="dropdown-item">Edit</a>
-                                                @endif
-                                                <a href="javascript:void(0);" class="dropdown-item"
-                                                   wire:click="delete({{ $task->id }})">Delete</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"
+                                                       wire:click="delete({{ $task->id }})">Delete</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
