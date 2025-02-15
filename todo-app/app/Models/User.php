@@ -12,6 +12,8 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    const ADMIN = 'admin';
+    const USER = 'user';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -45,4 +48,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === Self::ADMIN;
+    }
+
+    public function isUser(): bool
+    {
+        return $this->role === self::USER;
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
 }
