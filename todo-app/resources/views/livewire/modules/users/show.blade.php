@@ -41,9 +41,11 @@
                                         <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Actions
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a href="{{ route('users.edit', $user->id) }}" class="dropdown-item">Edit</a>
-                                            <a href="" class="dropdown-item">Delete</a>
+                                        <div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href="{{ route('users.edit', $user->id) }}" class="dropdown-item">Edit</a>
+                                                <a href="javascript:void(0);" class="dropdown-item" wire:click="delete({{ $user->id }})">Delete</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>

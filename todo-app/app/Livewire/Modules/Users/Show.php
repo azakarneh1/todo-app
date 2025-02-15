@@ -13,4 +13,17 @@ class Show extends Component
             'users' => User::all(),
         ]);
     }
+
+    public function delete($userId)
+    {
+        $user = User::find($userId);
+
+        if ($user) {
+            $user->delete();
+            session()->flash('message', 'User deleted successfully!');
+        } else {
+            session()->flash('message', 'User not found.');
+        }
+        return redirect()->route('users');
+    }
 }
