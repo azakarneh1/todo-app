@@ -43,7 +43,10 @@
                                         </button>
                                         <div>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a href="{{ route('tasks.edit', $task->id) }}" class="dropdown-item">Edit</a>
+                                                @if(auth()->user()->isAdmin())
+                                                    <a href="{{ route('tasks.edit', $task->id) }}"
+                                                       class="dropdown-item">Edit</a>
+                                                @endif
                                                 <a href="javascript:void(0);" class="dropdown-item"
                                                    wire:click="delete({{ $task->id }})">Delete</a>
                                             </div>
