@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return redirect()->route('register');
+});
 
 Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
 Route::view('/', 'dashboard')->name('dashboard');
