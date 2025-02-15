@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminMiddleware;
+
 
 Route::view('/', 'welcome');
 
@@ -13,17 +15,17 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::view('users', 'users')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', AdminMiddleware::class])
     ->name('users');
 
 // Create user route
 Route::get('users/create', \App\Livewire\Modules\Users\Create::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', AdminMiddleware::class])
     ->name('users.create');
 
 // Edit user route
 Route::get('users/{user_id}/edit', \App\Livewire\Modules\Users\Edit::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', AdminMiddleware::class])
     ->name('users.edit');
 
 
@@ -33,12 +35,12 @@ Route::view('tasks', 'tasks')
 
 // Create task route
 Route::get('tasks/create', \App\Livewire\Modules\tasks\Create::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', AdminMiddleware::class])
     ->name('tasks.create');
 
 // Edit task route
 Route::get('tasks/{task_id}/edit', \App\Livewire\Modules\tasks\Edit::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', AdminMiddleware::class])
     ->name('tasks.edit');
 
 require __DIR__ . '/auth.php';
