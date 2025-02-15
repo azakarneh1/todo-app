@@ -10,7 +10,7 @@ class Show extends Component
     public function render()
     {
         return view('livewire.modules.tasks.show', [
-            'tasks' => Task::all(),
+            'tasks' => Task::paginate(10),
         ]);
     }
 
