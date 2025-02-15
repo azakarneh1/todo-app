@@ -31,4 +31,14 @@ Route::view('tasks', 'tasks')
     ->middleware(['auth', 'verified'])
     ->name('tasks');
 
+// Create task route
+Route::get('tasks/create', \App\Livewire\Modules\tasks\Create::class)
+    ->middleware(['auth', 'verified'])
+    ->name('tasks.create');
+
+// Edit task route
+Route::get('tasks/{task_id}/edit', \App\Livewire\Modules\tasks\Edit::class)
+    ->middleware(['auth', 'verified'])
+    ->name('tasks.edit');
+
 require __DIR__ . '/auth.php';

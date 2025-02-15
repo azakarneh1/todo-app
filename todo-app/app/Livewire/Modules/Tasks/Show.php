@@ -13,4 +13,17 @@ class Show extends Component
             'tasks' => Task::all(),
         ]);
     }
+
+    public function delete($taskId)
+    {
+        $task = Task::find($taskId);
+
+        if ($task) {
+            $task->delete();
+            session()->flash('message', 'Task deleted successfully!');
+        } else {
+            session()->flash('message', 'Task not found.');
+        }
+        return redirect()->route('tasks');
+    }
 }

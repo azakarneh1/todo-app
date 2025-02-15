@@ -3,13 +3,11 @@
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 <div class="card-header border-0 pt-6">
-                    {{--                    @if($surveys->isEmpty())--}}
-                    <div class="card-toolbar d-flex justify-content-end w-100">
+                    @if(auth()->user()->isAdmin())
                         <div class="me-2" data-kt-customer-table-toolbar="base">
-                            <button type="button" class="btn btn-primary" wire:click="openModal">Add Task</button>
+                            <a href="{{ route('tasks.create') }}" class="btn btn-primary">Add Task</a>
                         </div>
-                    </div>
-                    {{--                    @endif--}}
+                    @endif
                     @if (session()->has('message'))
                         <div class="alert alert-success text-center mb-4 mt-3 w-100">
                             {{ session('message') }}
@@ -38,14 +36,17 @@
                                 <td>{{ $task->created_at->format('Y-m-d') }}</td>
                                 <td class="text-center">
                                     <div class="dropdown">
-                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                             Actions
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            {{--                                            <a href="{{ route('users.edit', $user->id) }}" class="dropdown-item">Edit</a>--}}
-                                            {{--                                            <a href="{{ route('users.create', $user->id) }}" class="dropdown-item">Questions</a>--}}
-                                            <a href="" class="dropdown-item">Edit</a>
-                                            <a href="" class="dropdown-item">Delete</a>
+                                        <div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href="{{ route('tasks.edit', $task->id) }}" class="dropdown-item">Edit</a>
+                                                <a href="javascript:void(0);" class="dropdown-item"
+                                                   wire:click="delete({{ $task->id }})">Delete</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>

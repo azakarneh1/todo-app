@@ -49,6 +49,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function scopeRoleUser($query)
+    {
+        return $query->where('role', self::USER);
+    }
+
     public function isAdmin(): bool
     {
         return $this->role === Self::ADMIN;
