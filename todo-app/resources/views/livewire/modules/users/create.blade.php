@@ -10,7 +10,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="card-body border-top p-9">
                     @if (session()->has('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
@@ -18,38 +18,51 @@
                     @endif
 
                     <form wire:submit.prevent="store">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" wire:model="name"
-                                   placeholder="Enter name">
-                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="name" class="col-lg-4 col-form-label required fw-bold fs-6">Name:</label>
+                            <div class="col-lg-8 fv-row">
+                                <input type="text" id="name" wire:model.defer="name"
+                                       class="form-control form-control-lg form-control-solid"
+                                       placeholder="Enter name">
+                                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" wire:model="email"
-                                   placeholder="Enter email">
-                            @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="email" class="col-lg-4 col-form-label required fw-bold fs-6">Email:</label>
+                            <div class="col-lg-8 fv-row">
+                                <input type="email" id="email" wire:model.defer="email"
+                                       class="form-control form-control-lg form-control-solid"
+                                       placeholder="Enter email">
+                                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="role" class="form-label">Role:</label>
-                            <select class="form-control text-muted" wire:model="role" id="role">
-                                <option value="">Select Role</option>
-                                <option value="admin">Admin</option>
-                                <option value="user">User</option>
-                            </select>
-                            @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="role" class="col-lg-4 col-form-label required fw-bold fs-6">Role:</label>
+                            <div class="col-lg-8 fv-row">
+                                <select id="role" class="form-select form-control-lg form-control-solid"
+                                        wire:model.defer="role">
+                                    <option value="">Select Role</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
+                                @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="password" wire:model="password"
-                                   placeholder="Enter password">
-                            @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="password"
+                                   class="col-lg-4 col-form-label required fw-bold fs-6">Password:</label>
+                            <div class="col-lg-8 fv-row">
+                                <input type="password" id="password" wire:model.defer="password"
+                                       class="form-control form-control-lg form-control-solid"
+                                       placeholder="Enter password">
+                                @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="d-flex justify-content-end">
+                        <div class="card-footer d-flex justify-content-end py-6 px-9">
                             <a href="{{ route('users') }}" class="btn btn-secondary me-2">Back</a>
                             <button type="submit" class="btn btn-primary">Create User</button>
                         </div>

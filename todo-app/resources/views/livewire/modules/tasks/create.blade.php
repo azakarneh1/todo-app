@@ -10,7 +10,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="card-body border-top p-9">
                     @if (session()->has('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
@@ -18,25 +18,32 @@
                     @endif
 
                     <form wire:submit.prevent="store">
-                        <div class="mb-3">
-                            <label for="text" class="form-label">Text:</label>
-                            <input type="text" class="form-control" id="text" wire:model="text"
-                                   placeholder="Enter task text">
-                            @error('text') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="text" class="col-lg-4 col-form-label required fw-bold fs-6">Text:</label>
+                            <div class="col-lg-8 fv-row">
+                                <input type="text" id="text" wire:model.defer="text"
+                                       class="form-control form-control-lg form-control-solid"
+                                       placeholder="Enter task text">
+                                @error('text') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="user_id" class="form-label">Assign User:</label>
-                            <select class="form-control" wire:model="user_id" id="user_id">
-                                <option value="">Select User</option>
-                                @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        <div class="row mb-6">
+                            <label for="user_id" class="col-lg-4 col-form-label required fw-bold fs-6">Assign
+                                User:</label>
+                            <div class="col-lg-8 fv-row">
+                                <select id="user_id" class="form-select form-control-lg form-control-solid"
+                                        wire:model.defer="user_id">
+                                    <option value="">Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
 
-                        <div class="d-flex justify-content-end">
+                        <div class="card-footer d-flex justify-content-end py-6 px-9">
                             <a href="{{ route('tasks') }}" class="btn btn-secondary me-2">Back</a>
                             <button type="submit" class="btn btn-primary">Create Task</button>
                         </div>
