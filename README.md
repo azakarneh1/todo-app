@@ -67,7 +67,7 @@ php artisan reverb:start
 php artisan queue:work
 
 
-## API Endpoints
+## API Endpoints {Postman collection folder added via project and email}
 The Todo App provides the following API endpoints for managing tasks:
 API Endpoints
 Authentication
