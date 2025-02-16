@@ -1,10 +1,3 @@
-<p align="center">
-    <a href="https://github.com/your-github-username" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Todo App</h1>
-    <br>
-</p>
 
 __Introduction__  
 Todo App is a simple task management application built with Laravel and MySQL. It allows users to create, update, and delete tasks, as well as track their progress. Follow the steps below to set up and run the project.
@@ -72,6 +65,11 @@ php artisan migrate
 ~~~
 php artisan serve
 ~~~
+### Important Seeder Step
+Before running the application, ensure you have seeded the database with the default admin user. This can be done by running the following command:
+```bash
+php artisan db:seed --class=AdminUserSeeder
+
 
 ## API Endpoints
 The Todo App provides the following API endpoints for managing tasks:
