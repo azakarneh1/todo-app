@@ -210,7 +210,7 @@ The Todo App API is built with several key features and technologies that ensure
 - **Global Scopes**: Applied global scopes to automatically filter tasks based on user-specific data (e.g., show only the authenticated user's tasks).
 - **Emails**: Sends task-related notifications to users through Laravel’s email system, allowing the app to communicate important updates to users.
 - **Real-Time Notifications**: Integrated real-time notifications using **Laravel Echo** and **Pusher** to notify users of updates to tasks without needing to refresh the page.
-- **Reverb ORM**: Implemented **Reverb ORM** models for efficient querying and handling relationships, ensuring optimized performance and easy data management.
+- **Reverb ORM**: Implemented **ORM** models for efficient querying and handling relationships, ensuring optimized performance and easy data management.
 - **Pagination**: Added pagination to task lists to limit the number of tasks displayed per page, improving performance and user experience for large datasets.
 - **Caching**: Implemented caching strategies to store frequently accessed data in memory, reducing database load and improving the app’s responsiveness.
 - **Livewire 3**: Integrated **Livewire 3** for building dynamic, reactive interfaces, enabling users to interact with tasks without requiring a full page reload.
