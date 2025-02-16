@@ -7,16 +7,7 @@ Todo App is a simple task management application built with Laravel and MySQL. I
 
 The minimum requirement for this project:
 
-- PHP: Minimum version 7.4
-- Composer: Installed on your system
-- Database: MySQL or a compatible database system
-
-## INSTALLATION
-------------
-
-Ensure your environment meets the following requirements:
-
-- PHP: Minimum version 7.4
+- PHP: Minimum version 8.2
 - Composer: Installed on your system
 - Database: MySQL or a compatible database system
 
