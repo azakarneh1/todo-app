@@ -146,11 +146,31 @@
       <path value="$PROJECT_DIR$/todo-app/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/todo-app/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/todo-app/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/laravel/reverb" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/clue/redis-protocol" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/clue/redis-react" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/todo-app/vendor/react/promise" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/todo-app/phpunit.xml" custom_loader_path="$PROJECT_DIR$/todo-app/vendor/autoload.php" paratest_path="$PROJECT_DIR$/todo-app/vendor/bin/paratest_for_phpstorm" use_configuration_file="true" />
+    </phpunit_settings>
   </component>
   <component name="PsalmOptionsConfiguration">
     <option name="transferred" value="true" />

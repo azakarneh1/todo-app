@@ -135,6 +135,20 @@
       <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/clue/redis-protocol" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/clue/redis-react" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/laravel/reverb" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/paragonie/sodium_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/pusher/pusher-php-server" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/ratchet/rfc6455" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/event-loop" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/promise-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/todo-app/vendor/react/stream" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

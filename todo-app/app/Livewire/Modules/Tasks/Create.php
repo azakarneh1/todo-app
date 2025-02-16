@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Modules\Tasks;
 
+use App\Events\NotificationEvent;
 use App\Models\Task;
 use App\Models\User;
 use Livewire\Component;
@@ -30,6 +31,8 @@ class Create extends Component
             'text' => $this->text,
             'user_id' => $this->user_id,
         ]);
+
+        event(new NotificationEvent($this->user_id, "New Task Assigned to you!"));
 
         session()->flash('message', 'Task created successfully!');
         return redirect()->route('tasks');
