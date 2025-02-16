@@ -61,6 +61,11 @@ Before running the application, ensure you have seeded the database with the def
 ```bash
 php artisan db:seed --class=AdminUserSeeder
 
+### Important commands to use
+npm run dev
+php artisan reverb:start
+php artisan queue:work
+
 
 ## API Endpoints
 The Todo App provides the following API endpoints for managing tasks:
