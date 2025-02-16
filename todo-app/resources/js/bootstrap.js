@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -10,6 +11,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 import './echo';
+
+console.log(window.Echo);
 
 let userId = document.querySelector('meta[name="user-id"]').content;
 console.log(userId);
